@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import {useForm} from'react-hook-form';
-import {toast } from 'react-toastify';
 
 
 
@@ -14,15 +12,17 @@ export const SignUpform = ({form, ToastContainer}) => {
   const {register, formState:{errors}, handleSubmit} = useForm();
   // const [error, setError] = useState()
 
-  const onSubmit = async  (data) =>{
+  const onSubmit = ()=> {
+    console.log(form)
+    navigate('/userDashboard')
     
-         try { 
-          const response = await axios.post('http://localhost:5000/users', data)
-            toast.success('Registered successfully');
-            navigate('/login')
-          }catch(err) {
-           toast.error(`failed:` +err.message);
-          }
+        //  try { 
+        //   const response = await axios.post('http://localhost:5000/users', data)
+        //     toast.success('Registered successfully');
+        //     navigate('/login')
+        //   }catch(err) {
+        //    toast.error(`failed:` +err.message);
+        //   }
 }
   
        
